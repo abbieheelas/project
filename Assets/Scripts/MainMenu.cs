@@ -8,8 +8,8 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //loads the next scene in the queue
-                                                                              //(lvl1 in this instance, but if more levels
-                                                                              //complete, then it'd continue to that level.)
+    //(lvl1 in this instance, but if more levels 
+    //complete, then it'd continue to that level.)
     }
 
     public void Quit()
