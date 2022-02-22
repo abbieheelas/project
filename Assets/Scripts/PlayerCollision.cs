@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public PlayerMovement movement;
+    public LookAround look;
 
     void OnCollisionEnter (UnityEngine.Collision collisioninfo)
     {
@@ -11,6 +12,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Debug.Log("hit log");
             movement.enabled = false;
+            look.enabled = false;
         }
     }
 }
