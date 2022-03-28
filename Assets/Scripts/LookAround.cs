@@ -13,17 +13,17 @@ public class LookAround : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(0f, 0f, 0f); //player starts facing the front
     }
 
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float y = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-        rotation -= y;
-        rotation = Mathf.Clamp(rotation, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(rotation, 0f, 0f);
-        player.Rotate(Vector3.up * x);
+        float x = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime; //value for virtual Y+X axis via mouse input,  
+        float y = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime; //multiplied by sens and time determined by frame rate
+        rotation -= y;                                                      
+        rotation = Mathf.Clamp(rotation, -90f, 90f); //if the rotation is between -90 and 90, then the player can rotate
+        transform.localRotation = Quaternion.Euler(rotation, 0f, 0f); //rotation about z axis determined by mouse movement
+        player.Rotate(Vector3.up * x); 
     }
 }
