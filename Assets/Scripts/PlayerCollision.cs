@@ -11,8 +11,9 @@ public class PlayerCollision : MonoBehaviour
         if (collisioninfo.gameObject.tag == "obstacle")
         {
             Debug.Log("hit log");
-            movement.enabled = false;
+            movement.enabled = false; //turns off movement script
             look.enabled = false;
+            FindObjectOfType<GameManager>().GameOver(); //accesses the gameover method in the gamemanager file
         }
     }
 }

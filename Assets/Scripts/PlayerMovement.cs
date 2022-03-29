@@ -44,5 +44,10 @@ public class PlayerMovement : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.fixedDeltaTime); 
+
+        if(controller.transform.position.y < -2f)
+        {
+            FindObjectOfType<GameManager>().GameOver();
+        }
     }
 }
