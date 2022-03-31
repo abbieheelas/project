@@ -2,32 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedBoost : MonoBehaviour
+public class JumpCurse : MonoBehaviour
 {
     public GameObject abilityEffect;
     public float multiplier = 1.5f;
     public float duration = 8f;
 
-    void OnTriggerEnter(Collider other) //when player collides with the boost, start speed boost
+    void OnTriggerEnter(Collider other) //when player collides with curse, start the jump curse
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine( speedBoostActive(other) );
+            StartCoroutine( jumpCurseActive(other) );
         }
     }
 
-    IEnumerator speedBoostActive(Collider player)
+    IEnumerator jumpCurseActive(Collider player)
     {
         //Visual Cue
         Instantiate(abilityEffect, transform.position, transform.rotation);
-        //Apply Speed Boost
+        //Apply jump curse
         PlayerMovement move = player.GetComponent<PlayerMovement>();
-        move.speed *= multiplier;
-        //Remove the ability object
+        move.jumpHeight /= multiplier;
+        //Remove the curse object
         Destroy(gameObject);
         //wait 8 seconds
         yield return new WaitForSeconds(duration);
-        //reverse speed boost
-        move.speed /= multiplier;
+        //reverse jump curse
+        move.jumpHeight *= multiplier;
     }
 }
