@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Complete : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void Continue()
+
+    public void Continue() //loads the next scene in the build index when button pressed
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

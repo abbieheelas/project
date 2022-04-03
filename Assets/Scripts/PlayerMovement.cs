@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(controller.transform.position.y < -2f)
         {
+            //if player y position goes below -2.0, call method
             FindObjectOfType<GameManager>().GameOver();
         }
     }
